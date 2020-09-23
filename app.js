@@ -16,7 +16,8 @@ var app = express();
 
 // Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://AdrKaczUser:SYVbwZ4p8nzTbuEk@cluster0.pjdxs.azure.mongodb.net/local_library?retryWrites=true&w=majority';
+var dev_db_url = 'mongodb+srv://AdrKaczUser:SYVbwZ4p8nzTbuEk@cluster0.pjdxs.azure.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -26,6 +27,25 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(helmet()); //add headers that help protect the app
+// app.use(
+//   helmet({
+//     permittedCrossDomainPolicies: { permittedPolicies: "master-only" },
+//   })
+// );
+// app.use(
+//   helmet({
+//     contentSecurityPolicy: false,
+//     dnsPrefetchControl: false,
+//     expectCt: false,
+//     frameguard: false,
+//     hidePoweredBy: false,
+//     hsts: false,
+//     ieNoOpen: false,
+//     noSniff: false,
+//     permittedCrossDomainPolicies: false,
+//     referrerPolicy: false,
+//   })
+// );
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
