@@ -26,26 +26,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(helmet()); //add headers that help protect the app
-// app.use(
-//   helmet({
-//     permittedCrossDomainPolicies: { permittedPolicies: "master-only" },
-//   })
-// );
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: false,
-//     dnsPrefetchControl: false,
-//     expectCt: false,
-//     frameguard: false,
-//     hidePoweredBy: false,
-//     hsts: false,
-//     ieNoOpen: false,
-//     noSniff: false,
-//     permittedCrossDomainPolicies: false,
-//     referrerPolicy: false,
-//   })
-// );
+// app.use(helmet()); //add headers that help protect the app
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

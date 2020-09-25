@@ -1,14 +1,35 @@
 body {
+  background: none;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+
+  color: #242038;
 }
 
 a {
-  color: #00B7FF;
+  color: #2274A5;
+}
+
+h1 {
+  color: #1B6807
 }
 
 .sidebar-nav {
   margin-top: 20px;
   padding: 0;
   list-style: none;
+}
+
+div.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
 }
