@@ -1,3 +1,11 @@
+/* html {
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+
+} */
+
 body {
   background: none;
   padding: 50px;
@@ -28,8 +36,18 @@ div.background {
   width: 100vw;
   height: 100vh;
 
-  background-image: url("/images/background.jpg");
+  /* background-image: url("/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top left;
+  background-position: top left; */
+}
+
+div.background > img {
+  min-height: 100vh;
+  max-height: 66vw;
+  object-fit: cover;
+
+  position: absolute;
+  top: 0;
+  right: 0;
 }
