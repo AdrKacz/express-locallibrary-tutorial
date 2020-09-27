@@ -154,6 +154,11 @@ exports.author_update_get = function(req, res, next) {
   Author.findById(req.params.id)
     .exec(function(err, author) {
       if (err) {return next(err);}
+      if (author===null) {//no results
+        var err = new Error('Genre not found');
+        err.status = 404;
+        return next(err);
+      }
       // Successful, so render
       res.render('author_form', {title: 'Update Author', author:author});
     });
